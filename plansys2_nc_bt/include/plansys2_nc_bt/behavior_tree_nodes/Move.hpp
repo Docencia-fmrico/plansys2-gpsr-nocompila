@@ -12,8 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef plansys2_nc_bt__BEHAVIOR_TREE_NODES__MOVE_HPP_
-#define plansys2_nc_bt__BEHAVIOR_TREE_NODES__MOVE_HPP_
+#ifndef PLANSYS2_NC_BT__BEHAVIOR_TREE_NODES__MOVE_HPP_
+#define PLANSYS2_NC_BT__BEHAVIOR_TREE_NODES__MOVE_HPP_
 
 #include <string>
 #include <map>
@@ -54,4 +54,4 @@ private:
 
 }  // namespace plansys2_bt_tests
 
-#endif  // plansys2_nc_bt__BEHAVIOR_TREE_NODES__MOVE_HPP_
+#endif  // PLANSYS2_NC_BT__BEHAVIOR_TREE_NODES__MOVE_HPP_
