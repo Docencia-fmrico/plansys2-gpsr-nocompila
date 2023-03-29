@@ -20,7 +20,7 @@ jobs:
         with:
           package-name: plansys2_nc_bt
           target-ros2-distro: humble
-          import-token: ${{ secrets.WORKFLOW_TEST }}
+          import-token: ${{ secrets.TEST_WORKFLOWS }}
           colcon-defaults: |
             {
               "test": {
