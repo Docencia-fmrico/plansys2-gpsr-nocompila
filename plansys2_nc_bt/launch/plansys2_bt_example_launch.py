@@ -25,7 +25,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Get the launch directory
-    example_dir = get_package_share_directory('plansys2_bt_example')
+    example_dir = get_package_share_directory('plansys2_nc_bt')
     namespace = LaunchConfiguration('namespace')
 
     declare_namespace_cmd = DeclareLaunchArgument(
@@ -139,40 +139,40 @@ def generate_launch_description():
         ])
 
     assemble_1_cmd = Node(
-        package='plansys2_bt_example',
+        package='plansys2_nc_bt',
         executable='assemble_action_node',
         name='assemble_1',
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
     assemble_2_cmd = Node(
-        package='plansys2_bt_example',
+        package='plansys2_nc_bt',
         executable='assemble_action_node',
         name='assemble_2',
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
     assemble_3_cmd = Node(
-        package='plansys2_bt_example',
+        package='plansys2_nc_bt',
         executable='assemble_action_node',
         name='assemble_3',
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
 
-    recharge_1_cmd = Node(
-        package='plansys2_bt_actions',
-        executable='bt_action_node',
-        name='recharge_1',
-        namespace=namespace,
-        output='screen',
-        parameters=[
-          example_dir + '/config/params.yaml',
-          {
-            'action_name': 'recharge',
-            'bt_xml_file': example_dir + '/behavior_trees_xml/recharge.xml'
-          }
-        ])
+    # recharge_1_cmd = Node(
+    #     package='plansys2_bt_actions',
+    #     executable='bt_action_node',
+    #     name='recharge_1',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[
+    #       example_dir + '/config/params.yaml',
+    #       {
+    #         'action_name': 'recharge',
+    #         'bt_xml_file': example_dir + '/behavior_trees_xml/recharge.xml'
+    #       }
+    #     ])
 
     ld = LaunchDescription()
 
@@ -190,6 +190,6 @@ def generate_launch_description():
     ld.add_action(assemble_1_cmd)
     ld.add_action(assemble_2_cmd)
     ld.add_action(assemble_3_cmd)
-    ld.add_action(recharge_1_cmd)
+    # ld.add_action(recharge_1_cmd)
 
     return ld
