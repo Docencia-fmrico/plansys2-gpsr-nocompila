@@ -25,7 +25,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Get the launch directory
-    example_dir = get_package_share_directory('plansys2_nc_bt')
+    example_dir = get_package_share_directory('plansys2_bt_example')
     namespace = LaunchConfiguration('namespace')
 
     declare_namespace_cmd = DeclareLaunchArgument(
@@ -39,7 +39,7 @@ def generate_launch_description():
             'launch',
             'plansys2_bringup_launch_monolithic.py')),
         launch_arguments={
-          'model_file': example_dir + '/pddl/bt_example.pddl',
+          'model_file': example_dir + '/pddl/nc_bt_domain.pddl',
           'namespace': namespace
           }.items())
 
@@ -139,21 +139,21 @@ def generate_launch_description():
         ])
 
     assemble_1_cmd = Node(
-        package='plansys2_nc_bt',
+        package='plansys2_bt_example',
         executable='assemble_action_node',
         name='assemble_1',
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
     assemble_2_cmd = Node(
-        package='plansys2_nc_bt',
+        package='plansys2_bt_example',
         executable='assemble_action_node',
         name='assemble_2',
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
     assemble_3_cmd = Node(
-        package='plansys2_nc_bt',
+        package='plansys2_bt_example',
         executable='assemble_action_node',
         name='assemble_3',
         namespace=namespace,
