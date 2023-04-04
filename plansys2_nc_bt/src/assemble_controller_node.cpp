@@ -111,21 +111,21 @@ public:
     problem_expert_->addPredicate(plansys2::Predicate("(item_at milk livingroom)"));
 
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected livingroom gym door_lg )"));
+      plansys2::Predicate("(connected livingroom gym door_lg)"));
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected gym livingroom door_lg )"));
+      plansys2::Predicate("(connected gym livingroom door_lg)"));
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected livingroom bedroom door_lb )"));
+      plansys2::Predicate("(connected livingroom bedroom door_lb)"));
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected bedroom livingroom door_lb )"));
+      plansys2::Predicate("(connected bedroom livingroom door_lb)"));
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected livingroom BathRoom door_lbath )"));
+      plansys2::Predicate("(connected livingroom bathroom door_lbath)"));
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected BathRoom livingroom door_lbath )"));
+      plansys2::Predicate("(connected bathroom livingroom door_lbath)"));
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected livingroom kitchen door_lk )"));
+      plansys2::Predicate("(connected livingroom kitchen door_lk)"));
     problem_expert_->addPredicate(
-      plansys2::Predicate("(connected kitchen livingroom door_lk )"));
+      plansys2::Predicate("(connected kitchen livingroom door_lk)"));
 
     problem_expert_->addPredicate(plansys2::Predicate("(close door_lg)"));
     problem_expert_->addPredicate(plansys2::Predicate("(close door_lb)"));
