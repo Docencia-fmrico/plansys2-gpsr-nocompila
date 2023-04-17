@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(plansys2_nc_bt)
+project(nc_bt_plansys2)
 
 
 find_package(ament_cmake REQUIRED)
@@ -39,20 +39,20 @@ set(dependencies
 
 include_directories(include)
 
-add_library(plansys2_recharge_bt_node SHARED src/behavior_tree_nodes/Recharge.cpp)
-list(APPEND plugin_libs plansys2_recharge_bt_node)
+add_library(plansys2_recharge_nc_node SHARED src/behavior_tree_nodes/Recharge.cpp)
+list(APPEND plugin_libs plansys2_recharge_nc_node)
 
-add_library(plansys2_close_gripper_bt_node SHARED src/behavior_tree_nodes/CloseGripper.cpp)
-list(APPEND plugin_libs plansys2_close_gripper_bt_node)
+add_library(plansys2_close_gripper_nc_node SHARED src/behavior_tree_nodes/CloseGripper.cpp)
+list(APPEND plugin_libs plansys2_close_gripper_nc_node)
 
-add_library(plansys2_open_gripper_bt_node SHARED src/behavior_tree_nodes/OpenGripper.cpp)
-list(APPEND plugin_libs plansys2_open_gripper_bt_node)
+add_library(plansys2_open_gripper_nc_node SHARED src/behavior_tree_nodes/OpenGripper.cpp)
+list(APPEND plugin_libs plansys2_open_gripper_nc_node)
 
-add_library(plansys2_move_bt_node SHARED src/behavior_tree_nodes/Move.cpp)
-list(APPEND plugin_libs plansys2_move_bt_node)
+add_library(plansys2_move_nc_node SHARED src/behavior_tree_nodes/Move.cpp)
+list(APPEND plugin_libs plansys2_move_nc_node)
 
-add_library(plansys2_approach_object_bt_node SHARED src/behavior_tree_nodes/ApproachObject.cpp)
-list(APPEND plugin_libs plansys2_approach_object_bt_node)
+add_library(plansys2_approach_object_nc_node SHARED src/behavior_tree_nodes/ApproachObject.cpp)
+list(APPEND plugin_libs plansys2_approach_object_nc_node)
 
 foreach(bt_plugin ${plugin_libs})
   ament_target_dependencies(${bt_plugin} ${dependencies})

@@ -15,14 +15,14 @@
 #include <string>
 #include <iostream>
 
-#include "plansys2_nc_bt/behavior_tree_nodes/ApproachObject.hpp"
+#include "nc_bt_plansys2/behavior_tree_nodes/CloseGripper.hpp"
 
 #include "behaviortree_cpp_v3/behavior_tree.h"
 
-namespace plansys2_nc_bt
+namespace nc_bt_plansys2
 {
 
-ApproachObject::ApproachObject(
+CloseGripper::CloseGripper(
   const std::string & xml_tag_name,
   const BT::NodeConfiguration & conf)
 : BT::ActionNodeBase(xml_tag_name, conf), counter_(0)
@@ -30,15 +30,15 @@ ApproachObject::ApproachObject(
 }
 
 void
-ApproachObject::halt()
+CloseGripper::halt()
 {
-  std::cout << "ApproachObject halt" << std::endl;
+  std::cout << "CloseGripper halt" << std::endl;
 }
 
 BT::NodeStatus
-ApproachObject::tick()
+CloseGripper::tick()
 {
-  std::cout << "ApproachObject tick " << counter_ << std::endl;
+  std::cout << "CloseGripper tick " << counter_ << std::endl;
 
   if (counter_++ < 5) {
     return BT::NodeStatus::RUNNING;
@@ -48,10 +48,10 @@ ApproachObject::tick()
   }
 }
 
-}  // namespace plansys2_nc_bt
+}  // namespace nc_bt_plansys2
 
 #include "behaviortree_cpp_v3/bt_factory.h"
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<plansys2_nc_bt::ApproachObject>("ApproachObject");
+  factory.registerNodeType<nc_bt_plansys2::CloseGripper>("CloseGripper");
 }
