@@ -152,14 +152,10 @@ def generate_launch_description():
           }
         ])
 
-
     ld = LaunchDescription()
-
     ld.add_action(declare_namespace_cmd)
-
     # Declare the launch options
     ld.add_action(plansys2_cmd)
-
     ld.add_action(move_1_cmd)
     # ld.add_action(move_2_cmd)
     # ld.add_action(move_3_cmd)
