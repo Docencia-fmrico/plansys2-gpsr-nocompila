@@ -22,11 +22,11 @@
 
 using namespace std::chrono_literals;
 
-class AssembleAction : public plansys2::ActionExecutorClient
+class AssistedAction : public plansys2::ActionExecutorClient
 {
 public:
-  AssembleAction()
-  : plansys2::ActionExecutorClient("assemble", 500ms)
+  AssistedAction()
+  : plansys2::ActionExecutorClient("assisted", 500ms)
   {
     progress_ = 0.0;
   }
@@ -45,7 +45,7 @@ private:
     }
 
     std::cout << "\r\e[K" << std::flush;
-    std::cout << "Assemble ... [" << std::min(100.0, progress_ * 100.0) << "%]  " <<
+    std::cout << "assisted ... [" << std::min(100.0, progress_ * 100.0) << "%]  " <<
       std::flush;
   }
 
@@ -55,9 +55,9 @@ private:
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  auto node = std::make_shared<AssembleAction>();
+  auto node = std::make_shared<AssistedAction>();
 
-  node->set_parameter(rclcpp::Parameter("action_name", "assemble"));
+  node->set_parameter(rclcpp::Parameter("action_name", "assisted"));
   node->trigger_transition(lifecycle_msgs::msg::Transition::TRANSITION_CONFIGURE);
 
   rclcpp::spin(node->get_node_base_interface());

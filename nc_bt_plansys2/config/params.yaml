@@ -1,7 +1,7 @@
 move_1:
   ros__parameters:
     plugins:
-      - plansys2_move_bt_node
+      - plansys2_move_nc_node
     waypoints: ["wheels_zone", "steering_wheels_zone", "body_car_zone", "assembly_zone", "recharge_zone"]
     waypoint_coords:
       wheels_zone: [0.0, -2.0, 0.0]
@@ -12,7 +12,7 @@ move_1:
 move_2:
   ros__parameters:
     plugins:
-      - plansys2_move_bt_node
+      - plansys2_move_nc_node
     waypoints: ["wheels_zone", "steering_wheels_zone", "body_car_zone", "assembly_zone", "recharge_zone"]
     waypoint_coords:
       wheels_zone: [0.0, -2.0, 0.0]
@@ -23,7 +23,7 @@ move_2:
 move_3:
   ros__parameters:
     plugins:
-      - plansys2_move_bt_node
+      - plansys2_move_nc_node
     waypoints: ["wheels_zone", "steering_wheels_zone", "body_car_zone", "assembly_zone", "recharge_zone"]
     waypoint_coords:
       wheels_zone: [0.0, -2.0, 0.0]
@@ -34,10 +34,10 @@ move_3:
 transport_1:
   ros__parameters:
     plugins:
-      - plansys2_close_gripper_bt_node
-      - plansys2_open_gripper_bt_node
-      - plansys2_move_bt_node
-      - plansys2_approach_object_bt_node
+      - plansys2_close_gripper_nc_node
+      - plansys2_open_gripper_nc_node
+      - plansys2_move_nc_node
+      - plansys2_approach_object_nc_node
     waypoints: ["wheels_zone", "steering_wheels_zone", "body_car_zone", "assembly_zone", "recharge_zone"]
     waypoint_coords:
       wheels_zone: [0.0, -2.0, 0.0]
@@ -48,10 +48,10 @@ transport_1:
 transport_2:
   ros__parameters:
     plugins:
-      - plansys2_close_gripper_bt_node
-      - plansys2_open_gripper_bt_node
-      - plansys2_move_bt_node
-      - plansys2_approach_object_bt_node
+      - plansys2_close_gripper_nc_node
+      - plansys2_open_gripper_nc_node
+      - plansys2_move_nc_node
+      - plansys2_approach_object_nc_node
     waypoints: ["wheels_zone", "steering_wheels_zone", "body_car_zone", "assembly_zone", "recharge_zone"]
     waypoint_coords:
       wheels_zone: [0.0, -2.0, 0.0]
@@ -62,10 +62,10 @@ transport_2:
 transport_3:
   ros__parameters:
     plugins:
-      - plansys2_close_gripper_bt_node
-      - plansys2_open_gripper_bt_node
-      - plansys2_move_bt_node
-      - plansys2_approach_object_bt_node
+      - plansys2_close_gripper_nc_node
+      - plansys2_open_gripper_nc_node
+      - plansys2_move_nc_node
+      - plansys2_approach_object_nc_node
     waypoints: ["wheels_zone", "steering_wheels_zone", "body_car_zone", "assembly_zone", "recharge_zone"]
     waypoint_coords:
       wheels_zone: [0.0, -2.0, 0.0]
@@ -73,16 +73,4 @@ transport_3:
       body_car_zone: [0.0, 2.0, 0.0]
       assembly_zone: [-2.0, -0.4, 0.0]
       recharge_zone: [-2.0, -0.4, 0.0]
-recharge_1:
-  ros__parameters:
-    plugins:
-      - plansys2_recharge_bt_node
-recharge_2:
-  ros__parameters:
-    plugins:
-      - plansys2_recharge_bt_node
 
-recharge_3:
-  ros__parameters:
-    plugins:
-      - plansys2_recharge_bt_node
