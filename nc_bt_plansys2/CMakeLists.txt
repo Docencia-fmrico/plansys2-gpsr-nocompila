@@ -59,11 +59,11 @@ foreach(bt_plugin ${plugin_libs})
   target_compile_definitions(${bt_plugin} PRIVATE BT_PLUGIN_EXPORT)
 endforeach()
 
-add_executable(assemble_action_node src/assemble_action_node.cpp)
-ament_target_dependencies(assemble_action_node ${dependencies})
+add_executable(assisted_action_node src/assisted_action_node.cpp)
+ament_target_dependencies(assisted_action_node ${dependencies})
 
-add_executable(assemble_controller_node src/assemble_controller_node.cpp)
-ament_target_dependencies(assemble_controller_node ${dependencies})
+add_executable(assisted_controller_node src/assisted_controller_node.cpp)
+ament_target_dependencies(assisted_controller_node ${dependencies})
 
 add_executable(nav2_sim_node src/nav2_sim_node.cpp)
 ament_target_dependencies(nav2_sim_node ${dependencies})
@@ -71,8 +71,8 @@ ament_target_dependencies(nav2_sim_node ${dependencies})
 install(DIRECTORY launch pddl behavior_trees_xml config DESTINATION share/${PROJECT_NAME})
 
 install(TARGETS
-  assemble_action_node
-  assemble_controller_node
+  assisted_action_node
+  assisted_controller_node
   nav2_sim_node
   ${plugin_libs}
   ARCHIVE DESTINATION lib

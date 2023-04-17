@@ -39,7 +39,7 @@ def generate_launch_description():
             'launch',
             'plansys2_bringup_launch_monolithic.py')),
         launch_arguments={
-          'model_file': example_dir + '/pddl/bt_example.pddl',
+          'model_file': example_dir + '/pddl/nc_domain.pddl',
           'namespace': namespace
           }.items())
 
@@ -138,24 +138,24 @@ def generate_launch_description():
     #       }
     #     ])
 
-    assemble_1_cmd = Node(
+    assisted_1_cmd = Node(
         package='nc_bt_plansys2',
-        executable='assemble_action_node',
-        name='assemble_1',
+        executable='assisted_action_node',
+        name='assisted_1',
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
-    # assemble_2_cmd = Node(
+    # assisted_2_cmd = Node(
     #     package='nc_bt_plansys2',
-    #     executable='assemble_action_node',
-    #     name='assemble_2',
+    #     executable='assisted_action_node',
+    #     name='assisted_2',
     #     namespace=namespace,
     #     output='screen',
     #     parameters=[])   # Create the launch description and populate
-    # assemble_3_cmd = Node(
+    # assisted_3_cmd = Node(
     #     package='nc_bt_plansys2',
-    #     executable='assemble_action_node',
-    #     name='assemble_3',
+    #     executable='assisted_action_node',
+    #     name='assisted_3',
     #     namespace=namespace,
     #     output='screen',
     #     parameters=[])   # Create the launch description and populate
@@ -187,9 +187,9 @@ def generate_launch_description():
     ld.add_action(transport_1_cmd)
     # ld.add_action(transport_2_cmd)
     # ld.add_action(transport_3_cmd)
-    ld.add_action(assemble_1_cmd)
-    # ld.add_action(assemble_2_cmd)
-    # ld.add_action(assemble_3_cmd)
+    ld.add_action(assisted_1_cmd)
+    # ld.add_action(assisted_2_cmd)
+    # ld.add_action(assisted_3_cmd)
     # ld.add_action(recharge_1_cmd)
 
     return ld

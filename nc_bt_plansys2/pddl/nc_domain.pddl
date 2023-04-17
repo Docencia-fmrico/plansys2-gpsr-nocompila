@@ -7,7 +7,7 @@ robot
 location
 item
 door
-car
+grandma
 );; end Types ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Predicates ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -23,16 +23,12 @@ car
 
 (open ?d - door)
 (close ?d - door)
+(front_door_at ?d - door ?l - location)
+(item_not_used ?i - item)
 
-(piece_is_wheel ?i - item)
-(piece_is_body_car ?i - item)
-(piece_is_steering_wheel ?i - item)
+(grandma_at ?g - grandma ?l - location)
 
-(not_item_in_place ?i - item)
-
-(is_assembly_zone ?l - location)
-
-(car_assembled ?c - car)
+(grandma_assisted ?r - robot ?i - item ?g - grandma)
 
 );; end Predicates ;;;;;;;;;;;;;;;;;;;;
 ;; Functions ;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -96,15 +92,12 @@ car
         (at start(item_at ?i ?l1))
         (at start(connected ?l1 ?l2 ?d))
         (at start(open ?d))
-        ; (at start(robot_available ?r))
     )
     :effect (and
         (at start(not(robot_at ?r ?l1)))
         (at end(robot_at ?r ?l2))
         (at start(not(item_at ?i ?l1)))
         (at end(item_at ?i ?l2))
-        ; (at start(not(robot_available ?r)))
-        ; (at end(robot_available ?r))
     )
 )
 
@@ -123,33 +116,18 @@ car
 ;     )
 ; )
 
-(:durative-action assemble
-    :parameters (?r - robot ?l - location ?i1 ?i2 ?i3 - item ?c - car)
+(:durative-action assisted
+    :parameters (?r - robot ?l - location ?i - item ?g - grandma)
     :duration ( = ?duration 5)
     :condition (and
-        ; (over all(battery_full ?r))
-
-        (at start(is_assembly_zone ?l))
+        (at start(grandma_at ?g ?l))
         (at start(robot_at ?r ?l))
-
-        (at start(item_at ?i1 ?l))
-        (at start(item_at ?i2 ?l))
-        (at start(item_at ?i3 ?l))
-
-        (at start(not_item_in_place ?i1))
-        (at start(not_item_in_place ?i2))
-        (at start(not_item_in_place ?i3))
-
-        ; (at start(robot_available ?r))
+        (at start(item_at ?i ?l))
+        (at start(item_not_used ?i))
     )
     :effect (and
-        (at start(not(not_item_in_place ?i1)))
-        (at start(not(not_item_in_place ?i2)))
-        (at start(not(not_item_in_place ?i3)))
-        (at end(car_assembled ?c))
-        ; (at start(not(robot_available ?r)))
-        ; (at end(robot_available ?r))
-
+        (at start(not(item_not_used ?i)))
+        (at end(grandma_assisted ?r ?i ?g))
     )
 )
 

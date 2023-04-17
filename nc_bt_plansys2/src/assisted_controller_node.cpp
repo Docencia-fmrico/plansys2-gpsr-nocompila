@@ -27,11 +27,11 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 
-class Assemble : public rclcpp::Node
+class Assisted : public rclcpp::Node
 {
 public:
-  Assemble()
-  : rclcpp::Node("assembling_controller")
+  Assisted()
+  : rclcpp::Node("assisted_controller")
   {
   }
 
@@ -65,7 +65,7 @@ public:
   {
     problem_expert_->addInstance(plansys2::Instance{"abitobot", "robot"});
 
-    problem_expert_->addInstance(plansys2::Instance{"car_1", "car"});
+    problem_expert_->addInstance(plansys2::Instance{"grandma", "grandma"});
 
     problem_expert_->addInstance(plansys2::Instance{"bedroom", "location"});
     problem_expert_->addInstance(plansys2::Instance{"gym", "location"});
@@ -77,22 +77,20 @@ public:
     problem_expert_->addInstance(plansys2::Instance{"door_lb", "door"});
     problem_expert_->addInstance(plansys2::Instance{"door_lbath", "door"});
     problem_expert_->addInstance(plansys2::Instance{"door_lk", "door"});
+    problem_expert_->addInstance(plansys2::Instance{"front_door", "door"});
 
     problem_expert_->addInstance(plansys2::Instance{"dumbell", "item"});
     problem_expert_->addInstance(plansys2::Instance{"ball", "item"});
     problem_expert_->addInstance(plansys2::Instance{"knife", "item"});
 
-
-    problem_expert_->addPredicate(plansys2::Predicate("(is_assembly_zone livingroom)"));
-
     problem_expert_->addPredicate(plansys2::Predicate("(item_at dumbell gym)"));
 
     problem_expert_->addPredicate(plansys2::Predicate("(item_at ball bedroom)"));
 
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at knife kitchen)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(item_at knife bedroom)"));
 
     problem_expert_->addPredicate(plansys2::Predicate("(robot_at abitobot gym)"));
-    // problem_expert_->addPredicate(plansys2::Predicate("(battery_full abitobot)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(grandma_at grandma bedroom)"));
     // problem_expert_->addPredicate(plansys2::Predicate("(robot_available abitobot)"));
 
     problem_expert_->addPredicate(
@@ -116,14 +114,16 @@ public:
     problem_expert_->addPredicate(plansys2::Predicate("(open door_lb)"));
     problem_expert_->addPredicate(plansys2::Predicate("(open door_lbath)"));
     problem_expert_->addPredicate(plansys2::Predicate("(open door_lk)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(close front_door)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(front_door_at front_door livingroom)"));
 
-    problem_expert_->addPredicate(plansys2::Predicate("(not_item_in_place dumbell)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(not_item_in_place ball)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(not_item_in_place knife)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(item_not_used dumbell)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(item_not_used ball)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(item_not_used knife)"));
 
     problem_expert_->setGoal(
       plansys2::Goal(
-        "(and(item_at knife livingroom))"));
+        "(and(grandma_assisted abitobot knife grandma))"));
   }
 
   void step()
@@ -149,7 +149,7 @@ private:
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  auto node = std::make_shared<Assemble>();
+  auto node = std::make_shared<Assisted>();
 
   if (!node->init()) {
     return 0;
