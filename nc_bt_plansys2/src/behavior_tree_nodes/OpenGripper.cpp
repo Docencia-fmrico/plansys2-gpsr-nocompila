@@ -15,11 +15,11 @@
 #include <string>
 #include <iostream>
 
-#include "plansys2_nc_bt/behavior_tree_nodes/OpenGripper.hpp"
+#include "nc_bt_plansys2/behavior_tree_nodes/OpenGripper.hpp"
 
 #include "behaviortree_cpp_v3/behavior_tree.h"
 
-namespace plansys2_nc_bt
+namespace nc_bt_plansys2
 {
 
 OpenGripper::OpenGripper(
@@ -48,10 +48,10 @@ OpenGripper::tick()
   }
 }
 
-}  // namespace plansys2_nc_bt
+}  // namespace nc_bt_plansys2
 
 #include "behaviortree_cpp_v3/bt_factory.h"
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<plansys2_nc_bt::OpenGripper>("OpenGripper");
+  factory.registerNodeType<nc_bt_plansys2::OpenGripper>("OpenGripper");
 }

@@ -64,21 +64,8 @@ public:
   void init_knowledge()
   {
     problem_expert_->addInstance(plansys2::Instance{"abitobot", "robot"});
-    problem_expert_->addInstance(plansys2::Instance{"abitogripper", "gripper"});
-    problem_expert_->addInstance(plansys2::Instance{"yaya", "grandma"});
 
-    problem_expert_->addInstance(plansys2::Instance{"dumbell", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"ball", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"bench", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"shirt", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"jeans", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"tie", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"pan", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"knife", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"brush", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"towel", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"medicine", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"milk", "item"});
+    problem_expert_->addInstance(plansys2::Instance{"car_1", "car"});
 
     problem_expert_->addInstance(plansys2::Instance{"bedroom", "location"});
     problem_expert_->addInstance(plansys2::Instance{"gym", "location"});
@@ -91,24 +78,22 @@ public:
     problem_expert_->addInstance(plansys2::Instance{"door_lbath", "door"});
     problem_expert_->addInstance(plansys2::Instance{"door_lk", "door"});
 
+    problem_expert_->addInstance(plansys2::Instance{"dumbell", "item"});
+    problem_expert_->addInstance(plansys2::Instance{"ball", "item"});
+    problem_expert_->addInstance(plansys2::Instance{"knife", "item"});
 
-    problem_expert_->addPredicate(plansys2::Predicate("(robot_at abitobot kitchen)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(grandma_at yaya bedroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(gripper_at abitogripper abitobot)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(gripper_free abitogripper)"));
 
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at dumbell kitchen)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at ball bathroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at bench bedroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at shirt livingroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at jeans gym)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at tie bathroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at pan bedroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at knife bathroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at brush gym)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at towel bathroom)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at medicine gym)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at milk livingroom)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(is_assembly_zone livingroom)"));
+
+    problem_expert_->addPredicate(plansys2::Predicate("(item_at dumbell gym)"));
+
+    problem_expert_->addPredicate(plansys2::Predicate("(item_at ball bedroom)"));
+
+    problem_expert_->addPredicate(plansys2::Predicate("(item_at knife kitchen)"));
+
+    problem_expert_->addPredicate(plansys2::Predicate("(robot_at abitobot gym)"));
+    // problem_expert_->addPredicate(plansys2::Predicate("(battery_full abitobot)"));
+    // problem_expert_->addPredicate(plansys2::Predicate("(robot_available abitobot)"));
 
     problem_expert_->addPredicate(
       plansys2::Predicate("(connected livingroom gym door_lg)"));
@@ -127,13 +112,18 @@ public:
     problem_expert_->addPredicate(
       plansys2::Predicate("(connected kitchen livingroom door_lk)"));
 
-    problem_expert_->addPredicate(plansys2::Predicate("(close door_lg)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(close door_lb)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(close door_lbath)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(close door_lk)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(open door_lg)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(open door_lb)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(open door_lbath)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(open door_lk)"));
+
+    problem_expert_->addPredicate(plansys2::Predicate("(not_item_in_place dumbell)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(not_item_in_place ball)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(not_item_in_place knife)"));
 
     problem_expert_->setGoal(
-      plansys2::Goal("(and((placed ball gym) (placed bench gym) (placed shirt bedroom))"));
+      plansys2::Goal(
+        "(and(item_at knife livingroom))"));
   }
 
   void step()

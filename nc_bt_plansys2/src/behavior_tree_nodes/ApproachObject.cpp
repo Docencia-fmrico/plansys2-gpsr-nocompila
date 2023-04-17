@@ -15,14 +15,14 @@
 #include <string>
 #include <iostream>
 
-#include "plansys2_nc_bt/behavior_tree_nodes/Recharge.hpp"
+#include "nc_bt_plansys2/behavior_tree_nodes/ApproachObject.hpp"
 
 #include "behaviortree_cpp_v3/behavior_tree.h"
 
-namespace plansys2_nc_bt
+namespace nc_bt_plansys2
 {
 
-Recharge::Recharge(
+ApproachObject::ApproachObject(
   const std::string & xml_tag_name,
   const BT::NodeConfiguration & conf)
 : BT::ActionNodeBase(xml_tag_name, conf), counter_(0)
@@ -30,17 +30,17 @@ Recharge::Recharge(
 }
 
 void
-Recharge::halt()
+ApproachObject::halt()
 {
-  std::cout << "Recharge halt" << std::endl;
+  std::cout << "ApproachObject halt" << std::endl;
 }
 
 BT::NodeStatus
-Recharge::tick()
+ApproachObject::tick()
 {
-  std::cout << "Recharge tick " << counter_ << std::endl;
+  std::cout << "ApproachObject tick " << counter_ << std::endl;
 
-  if (counter_++ < 10) {
+  if (counter_++ < 5) {
     return BT::NodeStatus::RUNNING;
   } else {
     counter_ = 0;
@@ -48,10 +48,10 @@ Recharge::tick()
   }
 }
 
-}  // namespace plansys2_nc_bt
+}  // namespace nc_bt_plansys2
 
 #include "behaviortree_cpp_v3/bt_factory.h"
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<plansys2_nc_bt::Recharge>("Recharge");
+  factory.registerNodeType<nc_bt_plansys2::ApproachObject>("ApproachObject");
 }

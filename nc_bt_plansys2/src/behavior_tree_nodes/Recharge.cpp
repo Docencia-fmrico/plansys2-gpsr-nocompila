@@ -15,14 +15,14 @@
 #include <string>
 #include <iostream>
 
-#include "plansys2_nc_bt/behavior_tree_nodes/CloseGripper.hpp"
+#include "nc_bt_plansys2/behavior_tree_nodes/Recharge.hpp"
 
 #include "behaviortree_cpp_v3/behavior_tree.h"
 
-namespace plansys2_nc_bt
+namespace nc_bt_plansys2
 {
 
-CloseGripper::CloseGripper(
+Recharge::Recharge(
   const std::string & xml_tag_name,
   const BT::NodeConfiguration & conf)
 : BT::ActionNodeBase(xml_tag_name, conf), counter_(0)
@@ -30,17 +30,17 @@ CloseGripper::CloseGripper(
 }
 
 void
-CloseGripper::halt()
+Recharge::halt()
 {
-  std::cout << "CloseGripper halt" << std::endl;
+  std::cout << "Recharge halt" << std::endl;
 }
 
 BT::NodeStatus
-CloseGripper::tick()
+Recharge::tick()
 {
-  std::cout << "CloseGripper tick " << counter_ << std::endl;
+  std::cout << "Recharge tick " << counter_ << std::endl;
 
-  if (counter_++ < 5) {
+  if (counter_++ < 10) {
     return BT::NodeStatus::RUNNING;
   } else {
     counter_ = 0;
@@ -48,10 +48,10 @@ CloseGripper::tick()
   }
 }
 
-}  // namespace plansys2_nc_bt
+}  // namespace nc_bt_plansys2
 
 #include "behaviortree_cpp_v3/bt_factory.h"
 BT_REGISTER_NODES(factory)
 {
-  factory.registerNodeType<plansys2_nc_bt::CloseGripper>("CloseGripper");
+  factory.registerNodeType<nc_bt_plansys2::Recharge>("Recharge");
 }

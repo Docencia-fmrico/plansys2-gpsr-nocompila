@@ -25,7 +25,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     # Get the launch directory
-    example_dir = get_package_share_directory('plansys2_nc_bt')
+    example_dir = get_package_share_directory('nc_bt_plansys2')
     namespace = LaunchConfiguration('namespace')
 
     declare_namespace_cmd = DeclareLaunchArgument(
@@ -39,7 +39,7 @@ def generate_launch_description():
             'launch',
             'plansys2_bringup_launch_monolithic.py')),
         launch_arguments={
-          'model_file': example_dir + '/pddl/nc_bt_domain.pddl',
+          'model_file': example_dir + '/pddl/bt_example.pddl',
           'namespace': namespace
           }.items())
 
@@ -60,37 +60,37 @@ def generate_launch_description():
           }
         ])
 
-    move_2_cmd = Node(
-        package='plansys2_bt_actions',
-        executable='bt_action_node',
-        name='move_2',
-        namespace=namespace,
-        output='screen',
-        parameters=[
-          example_dir + '/config/params.yaml',
-          {
-            'action_name': 'move',
-            'publisher_port': 1670,
-            'server_port': 1671,
-            'bt_xml_file': example_dir + '/behavior_trees_xml/move.xml'
-          }
-        ])
+    # move_2_cmd = Node(
+    #     package='plansys2_bt_actions',
+    #     executable='bt_action_node',
+    #     name='move_2',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[
+    #       example_dir + '/config/params.yaml',
+    #       {
+    #         'action_name': 'move',
+    #         'publisher_port': 1670,
+    #         'server_port': 1671,
+    #         'bt_xml_file': example_dir + '/behavior_trees_xml/move.xml'
+    #       }
+    #     ])
 
-    move_3_cmd = Node(
-        package='plansys2_bt_actions',
-        executable='bt_action_node',
-        name='move_3',
-        namespace=namespace,
-        output='screen',
-        parameters=[
-          example_dir + '/config/params.yaml',
-          {
-            'action_name': 'move',
-            'publisher_port': 1672,
-            'server_port': 1673,
-            'bt_xml_file': example_dir + '/behavior_trees_xml/move.xml'
-          }
-        ])
+    # move_3_cmd = Node(
+    #     package='plansys2_bt_actions',
+    #     executable='bt_action_node',
+    #     name='move_3',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[
+    #       example_dir + '/config/params.yaml',
+    #       {
+    #         'action_name': 'move',
+    #         'publisher_port': 1672,
+    #         'server_port': 1673,
+    #         'bt_xml_file': example_dir + '/behavior_trees_xml/move.xml'
+    #       }
+    #     ])
 
     transport_1_cmd = Node(
         package='plansys2_bt_actions',
@@ -107,58 +107,58 @@ def generate_launch_description():
             'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
           }
         ])
-    transport_2_cmd = Node(
-        package='plansys2_bt_actions',
-        executable='bt_action_node',
-        name='transport_2',
-        namespace=namespace,
-        output='screen',
-        parameters=[
-          example_dir + '/config/params.yaml',
-          {
-            'action_name': 'transport',
-            'publisher_port': 1676,
-            'server_port': 1677,
-            'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
-          }
-        ])
-    transport_3_cmd = Node(
-        package='plansys2_bt_actions',
-        executable='bt_action_node',
-        name='transport_3',
-        namespace=namespace,
-        output='screen',
-        parameters=[
-          example_dir + '/config/params.yaml',
-          {
-            'action_name': 'transport',
-            'publisher_port': 1678,
-            'server_port': 1679,
-            'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
-          }
-        ])
+    # transport_2_cmd = Node(
+    #     package='plansys2_bt_actions',
+    #     executable='bt_action_node',
+    #     name='transport_2',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[
+    #       example_dir + '/config/params.yaml',
+    #       {
+    #         'action_name': 'transport',
+    #         'publisher_port': 1676,
+    #         'server_port': 1677,
+    #         'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
+    #       }
+    #     ])
+    # transport_3_cmd = Node(
+    #     package='plansys2_bt_actions',
+    #     executable='bt_action_node',
+    #     name='transport_3',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[
+    #       example_dir + '/config/params.yaml',
+    #       {
+    #         'action_name': 'transport',
+    #         'publisher_port': 1678,
+    #         'server_port': 1679,
+    #         'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
+    #       }
+    #     ])
 
     assemble_1_cmd = Node(
-        package='plansys2_nc_bt',
+        package='nc_bt_plansys2',
         executable='assemble_action_node',
         name='assemble_1',
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
-    assemble_2_cmd = Node(
-        package='plansys2_nc_bt',
-        executable='assemble_action_node',
-        name='assemble_2',
-        namespace=namespace,
-        output='screen',
-        parameters=[])   # Create the launch description and populate
-    assemble_3_cmd = Node(
-        package='plansys2_nc_bt',
-        executable='assemble_action_node',
-        name='assemble_3',
-        namespace=namespace,
-        output='screen',
-        parameters=[])   # Create the launch description and populate
+    # assemble_2_cmd = Node(
+    #     package='nc_bt_plansys2',
+    #     executable='assemble_action_node',
+    #     name='assemble_2',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[])   # Create the launch description and populate
+    # assemble_3_cmd = Node(
+    #     package='nc_bt_plansys2',
+    #     executable='assemble_action_node',
+    #     name='assemble_3',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[])   # Create the launch description and populate
 
     # recharge_1_cmd = Node(
     #     package='plansys2_bt_actions',
@@ -182,14 +182,14 @@ def generate_launch_description():
     ld.add_action(plansys2_cmd)
 
     ld.add_action(move_1_cmd)
-    ld.add_action(move_2_cmd)
-    ld.add_action(move_3_cmd)
+    # ld.add_action(move_2_cmd)
+    # ld.add_action(move_3_cmd)
     ld.add_action(transport_1_cmd)
-    ld.add_action(transport_2_cmd)
-    ld.add_action(transport_3_cmd)
+    # ld.add_action(transport_2_cmd)
+    # ld.add_action(transport_3_cmd)
     ld.add_action(assemble_1_cmd)
-    ld.add_action(assemble_2_cmd)
-    ld.add_action(assemble_3_cmd)
+    # ld.add_action(assemble_2_cmd)
+    # ld.add_action(assemble_3_cmd)
     # ld.add_action(recharge_1_cmd)
 
     return ld

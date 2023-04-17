@@ -12,15 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#ifndef PLANSYS2_NC_BT__BEHAVIOR_TREE_NODES__CLOSEGRIPPER_HPP_
-#define PLANSYS2_NC_BT__BEHAVIOR_TREE_NODES__CLOSEGRIPPER_HPP_
+#ifndef NC_BT_PLANSYS2__BEHAVIOR_TREE_NODES__CLOSEGRIPPER_HPP_
+#define NC_BT_PLANSYS2__BEHAVIOR_TREE_NODES__CLOSEGRIPPER_HPP_
 
 #include <string>
 
 #include "behaviortree_cpp_v3/behavior_tree.h"
 #include "behaviortree_cpp_v3/bt_factory.h"
 
-namespace plansys2_nc_bt
+namespace nc_bt_plansys2
 {
 
 class CloseGripper : public BT::ActionNodeBase
@@ -42,6 +42,6 @@ private:
   int counter_;
 };
 
-}  // namespace plansys2_nc_bt
+}  // namespace nc_bt_plansys2
 
-#endif  // PLANSYS2_NC_BT__BEHAVIOR_TREE_NODES__CLOSEGRIPPER_HPP_
+#endif  // NC_BT_PLANSYS2__BEHAVIOR_TREE_NODES__CLOSEGRIPPER_HPP_
