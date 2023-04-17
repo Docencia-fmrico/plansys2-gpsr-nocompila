@@ -54,6 +54,9 @@ list(APPEND plugin_libs plansys2_move_nc_node)
 add_library(plansys2_approach_object_nc_node SHARED src/behavior_tree_nodes/ApproachObject.cpp)
 list(APPEND plugin_libs plansys2_approach_object_nc_node)
 
+add_library(plansys2_open_door_nc_node SHARED src/behavior_tree_nodes/OpenDoor.cpp)
+list(APPEND plugin_libs plansys2_open_door_nc_node)
+
 foreach(bt_plugin ${plugin_libs})
   ament_target_dependencies(${bt_plugin} ${dependencies})
   target_compile_definitions(${bt_plugin} PRIVATE BT_PLUGIN_EXPORT)
