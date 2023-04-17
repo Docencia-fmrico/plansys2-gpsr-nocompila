@@ -114,6 +114,27 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
+    tidy_1_cmd = Node(
+        package='nc_bt_plansys2',
+        executable='tidy_action_node',
+        name='tidy_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])   # Create the launch description and populate
+    # assisted_2_cmd = Node(
+    #     package='nc_bt_plansys2',
+    #     executable='assisted_action_node',
+    #     name='assisted_2',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[])   # Create the launch description and populate
+    # assisted_3_cmd = Node(
+    #     package='nc_bt_plansys2',
+    #     executable='assisted_action_node',
+    #     name='assisted_3',
+    #     namespace=namespace,
+    #     output='screen',
+    #     parameters=[])   # Create the launch description and populate
 
     open_1_cmd = Node(
         package='plansys2_bt_actions',
@@ -146,6 +167,7 @@ def generate_launch_description():
     # ld.add_action(transport_2_cmd)
     # ld.add_action(transport_3_cmd)
     ld.add_action(assisted_1_cmd)
+    ld.add_action(tidy_1_cmd)
     # ld.add_action(assisted_2_cmd)
     # ld.add_action(assisted_3_cmd)
     # ld.add_action(recharge_1_cmd)

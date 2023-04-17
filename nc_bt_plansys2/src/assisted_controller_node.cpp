@@ -81,13 +81,21 @@ public:
 
     problem_expert_->addInstance(plansys2::Instance{"dumbell", "item"});
     problem_expert_->addInstance(plansys2::Instance{"ball", "item"});
-    problem_expert_->addInstance(plansys2::Instance{"knife", "item"});
+    problem_expert_->addInstance(plansys2::Instance{"bench", "item"});
+    problem_expert_->addInstance(plansys2::Instance{"medicine", "item"});
+    problem_expert_->addInstance(plansys2::Instance{"milk_glass", "item"});
+
 
     problem_expert_->addPredicate(plansys2::Predicate("(item_at dumbell gym)"));
-
     problem_expert_->addPredicate(plansys2::Predicate("(item_at ball bedroom)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(item_at bench kitchen)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(item_at medicine kitchen)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(item_at milk_glass kitchen)"));
 
-    problem_expert_->addPredicate(plansys2::Predicate("(item_at knife bedroom)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(object1 dumbell)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(object2 ball)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(object3 bench)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(items_location gym)"));
 
     problem_expert_->addPredicate(plansys2::Predicate("(robot_at abitobot gym)"));
     problem_expert_->addPredicate(plansys2::Predicate("(grandma_at grandma bedroom)"));
@@ -116,14 +124,11 @@ public:
     problem_expert_->addPredicate(plansys2::Predicate("(open door_lk)"));
     problem_expert_->addPredicate(plansys2::Predicate("(close front_door)"));
     problem_expert_->addPredicate(plansys2::Predicate("(front_door_at front_door livingroom)"));
-
-    problem_expert_->addPredicate(plansys2::Predicate("(item_not_used dumbell)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_not_used ball)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(item_not_used knife)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(grandma_assisted grandma)"));
 
     problem_expert_->setGoal(
       plansys2::Goal(
-        "(and(grandma_assisted abitobot knife grandma))"));
+        "(and(tidy_house abitobot)(give_grandma abitobot milk_glass grandma))"));
   }
 
   void step()
