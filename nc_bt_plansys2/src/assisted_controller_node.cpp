@@ -118,9 +118,9 @@ public:
     problem_expert_->addPredicate(
       plansys2::Predicate("(connected kitchen livingroom door_lk)"));
 
-    problem_expert_->addPredicate(plansys2::Predicate("(open door_lg)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(close door_lg)"));
     problem_expert_->addPredicate(plansys2::Predicate("(open door_lb)"));
-    problem_expert_->addPredicate(plansys2::Predicate("(open door_lbath)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(close door_lbath)"));
     problem_expert_->addPredicate(plansys2::Predicate("(open door_lk)"));
     problem_expert_->addPredicate(plansys2::Predicate("(close front_door)"));
     problem_expert_->addPredicate(plansys2::Predicate("(front_door_at front_door livingroom)"));

@@ -107,37 +107,6 @@ def generate_launch_description():
             'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
           }
         ])
-    # transport_2_cmd = Node(
-    #     package='plansys2_bt_actions',
-    #     executable='bt_action_node',
-    #     name='transport_2',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[
-    #       example_dir + '/config/params.yaml',
-    #       {
-    #         'action_name': 'transport',
-    #         'publisher_port': 1676,
-    #         'server_port': 1677,
-    #         'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
-    #       }
-    #     ])
-    # transport_3_cmd = Node(
-    #     package='plansys2_bt_actions',
-    #     executable='bt_action_node',
-    #     name='transport_3',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[
-    #       example_dir + '/config/params.yaml',
-    #       {
-    #         'action_name': 'transport',
-    #         'publisher_port': 1678,
-    #         'server_port': 1679,
-    #         'bt_xml_file': example_dir + '/behavior_trees_xml/transport.xml'
-    #       }
-    #     ])
-
     assisted_1_cmd = Node(
         package='nc_bt_plansys2',
         executable='assisted_action_node',
@@ -167,27 +136,26 @@ def generate_launch_description():
     #     output='screen',
     #     parameters=[])   # Create the launch description and populate
 
-    # recharge_1_cmd = Node(
-    #     package='plansys2_bt_actions',
-    #     executable='bt_action_node',
-    #     name='recharge_1',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[
-    #       example_dir + '/config/params.yaml',
-    #       {
-    #         'action_name': 'recharge',
-    #         'bt_xml_file': example_dir + '/behavior_trees_xml/recharge.xml'
-    #       }
-    #     ])
+    open_1_cmd = Node(
+        package='plansys2_bt_actions',
+        executable='bt_action_node',
+        name='open_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[
+          example_dir + '/config/params.yaml',
+          {
+            'action_name': 'open-door',
+            'publisher_port': 1678,
+            'server_port': 1679,
+            'bt_xml_file': example_dir + '/behavior_trees_xml/open-door.xml'
+          }
+        ])
 
     ld = LaunchDescription()
-
     ld.add_action(declare_namespace_cmd)
-
     # Declare the launch options
     ld.add_action(plansys2_cmd)
-
     ld.add_action(move_1_cmd)
     # ld.add_action(move_2_cmd)
     # ld.add_action(move_3_cmd)
@@ -199,5 +167,6 @@ def generate_launch_description():
     # ld.add_action(assisted_2_cmd)
     # ld.add_action(assisted_3_cmd)
     # ld.add_action(recharge_1_cmd)
+    ld.add_action(open_1_cmd)
 
     return ld
