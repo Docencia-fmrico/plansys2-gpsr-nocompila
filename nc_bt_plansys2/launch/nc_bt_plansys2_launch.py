@@ -60,38 +60,6 @@ def generate_launch_description():
           }
         ])
 
-    # move_2_cmd = Node(
-    #     package='plansys2_bt_actions',
-    #     executable='bt_action_node',
-    #     name='move_2',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[
-    #       example_dir + '/config/params.yaml',
-    #       {
-    #         'action_name': 'move',
-    #         'publisher_port': 1670,
-    #         'server_port': 1671,
-    #         'bt_xml_file': example_dir + '/behavior_trees_xml/move.xml'
-    #       }
-    #     ])
-
-    # move_3_cmd = Node(
-    #     package='plansys2_bt_actions',
-    #     executable='bt_action_node',
-    #     name='move_3',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[
-    #       example_dir + '/config/params.yaml',
-    #       {
-    #         'action_name': 'move',
-    #         'publisher_port': 1672,
-    #         'server_port': 1673,
-    #         'bt_xml_file': example_dir + '/behavior_trees_xml/move.xml'
-    #       }
-    #     ])
-
     transport_1_cmd = Node(
         package='plansys2_bt_actions',
         executable='bt_action_node',
@@ -121,20 +89,6 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
-    # assisted_2_cmd = Node(
-    #     package='nc_bt_plansys2',
-    #     executable='assisted_action_node',
-    #     name='assisted_2',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[])   # Create the launch description and populate
-    # assisted_3_cmd = Node(
-    #     package='nc_bt_plansys2',
-    #     executable='assisted_action_node',
-    #     name='assisted_3',
-    #     namespace=namespace,
-    #     output='screen',
-    #     parameters=[])   # Create the launch description and populate
 
     open_1_cmd = Node(
         package='plansys2_bt_actions',
@@ -154,19 +108,11 @@ def generate_launch_description():
 
     ld = LaunchDescription()
     ld.add_action(declare_namespace_cmd)
-    # Declare the launch options
     ld.add_action(plansys2_cmd)
     ld.add_action(move_1_cmd)
-    # ld.add_action(move_2_cmd)
-    # ld.add_action(move_3_cmd)
     ld.add_action(transport_1_cmd)
-    # ld.add_action(transport_2_cmd)
-    # ld.add_action(transport_3_cmd)
     ld.add_action(assisted_1_cmd)
     ld.add_action(tidy_1_cmd)
-    # ld.add_action(assisted_2_cmd)
-    # ld.add_action(assisted_3_cmd)
-    # ld.add_action(recharge_1_cmd)
     ld.add_action(open_1_cmd)
 
     return ld

@@ -97,7 +97,7 @@ public:
     problem_expert_->addPredicate(plansys2::Predicate("(object3 bench)"));
     problem_expert_->addPredicate(plansys2::Predicate("(items_location gym)"));
 
-    problem_expert_->addPredicate(plansys2::Predicate("(robot_at abitobot gym)"));
+    problem_expert_->addPredicate(plansys2::Predicate("(robot_at abitobot livingroom)"));
     problem_expert_->addPredicate(plansys2::Predicate("(grandma_at grandma bedroom)"));
     // problem_expert_->addPredicate(plansys2::Predicate("(robot_available abitobot)"));
 

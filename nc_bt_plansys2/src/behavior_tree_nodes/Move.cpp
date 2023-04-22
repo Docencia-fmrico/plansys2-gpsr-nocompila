@@ -109,7 +109,6 @@ Move::on_success()
   return BT::NodeStatus::SUCCESS;
 }
 
-
 }  // namespace plansys2_bt_tests
 
 #include "behaviortree_cpp_v3/bt_factory.h"
