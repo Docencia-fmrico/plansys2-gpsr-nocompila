@@ -89,6 +89,13 @@ def generate_launch_description():
         namespace=namespace,
         output='screen',
         parameters=[])   # Create the launch description and populate
+    open_front_door_1_cmd = Node(
+        package='nc_bt_plansys2',
+        executable='open_action_node',
+        name='open_front_door_1',
+        namespace=namespace,
+        output='screen',
+        parameters=[])
 
     open_1_cmd = Node(
         package='plansys2_bt_actions',
@@ -113,6 +120,7 @@ def generate_launch_description():
     ld.add_action(transport_1_cmd)
     ld.add_action(assisted_1_cmd)
     ld.add_action(tidy_1_cmd)
+    ld.add_action(open_front_door_1_cmd)
     ld.add_action(open_1_cmd)
 
     return ld

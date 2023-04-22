@@ -65,6 +65,9 @@ ament_target_dependencies(assisted_action_node ${dependencies})
 add_executable(tidy_action_node src/tidy_action_node.cpp)
 ament_target_dependencies(tidy_action_node ${dependencies})
 
+add_executable(open_action_node src/open_action_node.cpp)
+ament_target_dependencies(open_action_node ${dependencies})
+
 add_executable(assisted_controller_node src/assisted_controller_node.cpp)
 ament_target_dependencies(assisted_controller_node ${dependencies})
 
@@ -76,6 +79,7 @@ install(DIRECTORY launch pddl behavior_trees_xml config DESTINATION share/${PROJ
 install(TARGETS
   assisted_action_node
   tidy_action_node
+  open_action_node
   assisted_controller_node
   nav2_sim_node
   ${plugin_libs}
