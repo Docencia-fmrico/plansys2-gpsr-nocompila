@@ -39,9 +39,6 @@ set(dependencies
 
 include_directories(include)
 
-add_library(plansys2_recharge_nc_node SHARED src/behavior_tree_nodes/Recharge.cpp)
-list(APPEND plugin_libs plansys2_recharge_nc_node)
-
 add_library(plansys2_close_gripper_nc_node SHARED src/behavior_tree_nodes/CloseGripper.cpp)
 list(APPEND plugin_libs plansys2_close_gripper_nc_node)
 
