@@ -33,6 +33,8 @@ grandma
 
 (grandma_at ?g - grandma ?l - location)
 (grandma_assisted ?g - grandma)
+(open_front_door ?d - door)
+
 (give_grandma ?r - robot ?i - item ?g - grandma)
 
 );; end Predicates ;;;;;;;;;;;;;;;;;;;;
@@ -106,21 +108,6 @@ grandma
     )
 )
 
-; (:durative-action recharge
-;     :parameters (?r - robot ?l - location)
-;     :duration ( = ?duration 5)
-;     :condition (and
-;         (at start(is_recharge_zone ?l))
-;         (over all(robot_at ?r ?l))
-;         (at start(robot_available ?r))
-;       )
-;     :effect (and
-;         (at end(battery_full ?r))
-;                 (at start(not(robot_available ?r)))
-;         (at end(robot_available ?r))
-;     )
-; )
-
 (:durative-action assisted
     :parameters (?r - robot ?l - location ?i - item ?g - grandma)
     :duration ( = ?duration 5)
@@ -155,7 +142,7 @@ grandma
     )
 )
 
-(:durative-action open-front-door
+(:durative-action opened
     :parameters (?l - location ?r - robot ?d - door)
     :duration (= ?duration 1)
     :condition 
@@ -168,6 +155,7 @@ grandma
         (and 
           (at start (not(close ?d)))
           (at end (open ?d))
+          (at end (open_front_door ?d))
     )
 )
 

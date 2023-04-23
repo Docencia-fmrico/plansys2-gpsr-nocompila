@@ -99,7 +99,6 @@ public:
 
     problem_expert_->addPredicate(plansys2::Predicate("(robot_at abitobot livingroom)"));
     problem_expert_->addPredicate(plansys2::Predicate("(grandma_at grandma bedroom)"));
-    // problem_expert_->addPredicate(plansys2::Predicate("(robot_available abitobot)"));
 
     problem_expert_->addPredicate(
       plansys2::Predicate("(connected livingroom gym door_lg)"));
@@ -123,12 +122,16 @@ public:
     problem_expert_->addPredicate(plansys2::Predicate("(close door_lbath)"));
     problem_expert_->addPredicate(plansys2::Predicate("(open door_lk)"));
     problem_expert_->addPredicate(plansys2::Predicate("(close front_door)"));
+
     problem_expert_->addPredicate(plansys2::Predicate("(front_door_at front_door livingroom)"));
     problem_expert_->addPredicate(plansys2::Predicate("(grandma_assisted grandma)"));
-
+    std::string goal1 = "(open_front_door front_door)";
+    std::string goal2 = "(tidy_house abitobot)";
+    std::string goal3 = "(give_grandma abitobot milk_glass grandma)";
+    std::string goal4 = "(give_grandma abitobot medicine grandma)";
     problem_expert_->setGoal(
       plansys2::Goal(
-        "(and(tidy_house abitobot)(give_grandma abitobot milk_glass grandma))"));
+        "(and" + goal1 + goal2 + goal3 + goal4 + ")"));
   }
 
   void step()
