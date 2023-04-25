@@ -1,4 +1,6 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-8d59dc4de5201274e310e4c54b9627a8934c3b88527886e3b421487c677d23eb.svg)](https://classroom.github.com/a/j9y_86cr)
+[![run-test](https://github.com/Docencia-fmrico/bump-and-stop-nocompila/actions/workflows/run-test.yaml/badge.svg?branch=main)](https://github.com/Docencia-fmrico/bump-and-stop-nocompila/actions/workflows/run-test.yaml)
+![distro](https://img.shields.io/badge/ROS2-Humble-blue)
 # plansys2_gpsr
 
 # Ejercicio 4 de Planificación y Sistemas Cognitivos 2023
